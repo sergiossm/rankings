@@ -58,10 +58,10 @@ class AppTheme {
       primaryTextTheme: textStyle,
       appBarTheme: baseThemeData.appBarTheme.copyWith(
         color: colorScheme.surface,
-        centerTitle: false,
+        centerTitle: true,
         elevation: 0,
         scrolledUnderElevation: 0,
-        titleTextStyle: textStyle.displaySmall,
+        titleTextStyle: textStyle.headlineSmall,
         iconTheme: baseThemeData.iconTheme.copyWith(
           color: colorScheme.onSurface,
         ),

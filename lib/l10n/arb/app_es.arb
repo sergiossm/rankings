@@ -3,5 +3,65 @@
     "appBarTitle": "Joyo",
     "@appBarTitle": {
         "description": "Texto mostrado en el AppBar"
+    },
+    "continueWithGoogle": "Continuar con Google",
+    "@continueWithGoogle": {
+        "description": "Texto mostrado en el botón de continuar con Google"
+    },
+    "continueWithApple": "Continuar con Apple",
+    "@continueWithApple": {
+        "description": "Texto mostrado en el botón de continuar con Apple"
+    },
+    "otherOptions": "Otras opciones",
+    "@otherOptions": {
+        "description": "Texto mostrado en el botón de otras opciones"
+    },
+    "askMeToRankAnything": "Pídeme que clasifique cualquier cosa",
+    "@askMeToRankAnything": {
+        "description": "Sugerencia de prompt para clasificar cualquier cosa"
+    },
+    "topMovies": "Las 10 mejores películas de todos los tiempos",
+    "@topMovies": {
+        "description": "Sugerencia de prompt para clasificar películas"
+    },
+    "bestRestaurants": "Mejores restaurantes en Barcelona",
+    "@bestRestaurants": {
+        "description": "Sugerencia de prompt para clasificar restaurantes"
+    },
+    "greatestAthletes": "Los mejores atletas de la historia",
+    "@greatestAthletes": {
+        "description": "Sugerencia de prompt para clasificar atletas"
+    },
+    "beautifulPlaces": "Lugares más hermosos para visitar",
+    "@beautifulPlaces": {
+        "description": "Sugerencia de prompt para clasificar lugares hermosos"
+    },
+    "programmingLanguages": "Mejores lenguajes de programación para 2025",
+    "@programmingLanguages": {
+        "description": "Sugerencia de prompt para clasificar lenguajes de programación"
+    },
+    "techUnicorns": "Unicornios tecnológicos mejor valorados",
+    "@techUnicorns": {
+        "description": "Sugerencia de prompt para clasificar unicornios tecnológicos"
+    },
+    "startupFounders": "Fundadores de startups más exitosos",
+    "@startupFounders": {
+        "description": "Sugerencia de prompt para clasificar fundadores de startups"
+    },
+    "youtubeCreators": "Mejores creadores de contenido de YouTube",
+    "@youtubeCreators": {
+        "description": "Sugerencia de prompt para clasificar creadores de YouTube"
+    },
+    "productivityTools": "Mejores herramientas de productividad para desarrolladores",
+    "@productivityTools": {
+        "description": "Sugerencia de prompt para clasificar herramientas de productividad"
+    },
+    "paidInfluencers": "Influencers mejor pagados",
+    "@paidInfluencers": {
+        "description": "Sugerencia de prompt para clasificar influencers pagados"
+    },
+    "developedBy": "Desarrollado por",
+    "@developedBy": {
+        "description": "Texto mostrado en el texto de desarrollado por"
     }
 }
