@@ -1,7 +1,67 @@
 {
     "@@locale": "en",
-    "appBarTitle": "Joyo",
+    "appBarTitle": "Ranking",
     "@appBarTitle": {
         "description": "Text shown in the AppBar"
+    },
+    "continueWithGoogle": "Continue with Google",
+    "@continueWithGoogle": {
+        "description": "Text shown in the continue with Google button"
+    },
+    "continueWithApple": "Continue with Apple",
+    "@continueWithApple": {
+        "description": "Text shown in the continue with Apple button"
+    },
+    "otherOptions": "Other options",
+    "@otherOptions": {
+        "description": "Text shown in the other options button"
+    },
+    "askMeToRankAnything": "Ask me to rank anything",
+    "@askMeToRankAnything": {
+        "description": "Prompt suggestion for ranking anything"
+    },
+    "topMovies": "Top 10 movies of all time",
+    "@topMovies": {
+        "description": "Prompt suggestion for ranking movies"
+    },
+    "bestRestaurants": "Best restaurants in Barcelona",
+    "@bestRestaurants": {
+        "description": "Prompt suggestion for ranking restaurants"
+    },
+    "greatestAthletes": "Greatest athletes ever",
+    "@greatestAthletes": {
+        "description": "Prompt suggestion for ranking athletes"
+    },
+    "beautifulPlaces": "Most beautiful places to visit",
+    "@beautifulPlaces": {
+        "description": "Prompt suggestion for ranking beautiful places"
+    },
+    "programmingLanguages": "Best programming languages for 2025",
+    "@programmingLanguages": {
+        "description": "Prompt suggestion for ranking programming languages"
+    },
+    "techUnicorns": "Highest-valued tech unicorns",
+    "@techUnicorns": {
+        "description": "Prompt suggestion for ranking tech unicorns"
+    },
+    "startupFounders": "Most successful startup founders",
+    "@startupFounders": {
+        "description": "Prompt suggestion for ranking startup founders"
+    },
+    "youtubeCreators": "Top YouTube content creators",
+    "@youtubeCreators": {
+        "description": "Prompt suggestion for ranking YouTube creators"
+    },
+    "productivityTools": "Top productivity tools for developers",
+    "@productivityTools": {
+        "description": "Prompt suggestion for ranking productivity tools"
+    },
+    "paidInfluencers": "Highest-paid influencers",
+    "@paidInfluencers": {
+        "description": "Prompt suggestion for ranking paid influencers"
+    },
+    "developedBy": "Developed by",
+    "@developedBy": {
+        "description": "Text shown in the developed by text"
     }
 }

@@ -2,11 +2,11 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rankings/src/application/authentication/providers.dart';
-import 'package:rankings/src/presentation/routing/go_router_refresh_stream.dart';
 import 'package:rankings/src/presentation/routing/routers/authentication_router.dart';
 import 'package:rankings/src/presentation/routing/routers/home_router.dart';
 import 'package:rankings/src/presentation/routing/routers/splash_router.dart';
 import 'package:rankings/src/presentation/routing/routes/app_routes.dart';
+import 'package:rankings/src/presentation/routing/widgets/go_router_refresh_stream.dart';
 
 final rootNavigatorKey = GlobalKey<NavigatorState>();
 
@@ -43,7 +43,7 @@ final goRouterProvider = Provider<GoRouter>((ref) {
       AuthenticationRouter.route,
 
       // Home
-      HomeRouter.route,
+      ...HomeRouter.routes,
     ],
   );
 });

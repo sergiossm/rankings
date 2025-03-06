@@ -1,3 +1,4 @@
+export 'animations/animations.dart';
 export 'extensions/extensions.dart';
 export 'resources/resources.dart';
 export 'theme/theme.dart';

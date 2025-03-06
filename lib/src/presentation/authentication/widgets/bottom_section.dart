@@ -28,7 +28,7 @@ class _BottomSection extends ConsumerWidget {
                         );
                       },
                       type: ButtonType.filledVariant,
-                      text: 'Continue with Google',
+                      text: context.l10n.continueWithGoogle,
                       icon: HugeIcon(
                         icon: HugeIcons.strokeRoundedGoogle,
                         color: context.color.onSecondary,
@@ -39,7 +39,7 @@ class _BottomSection extends ConsumerWidget {
                       expand: true,
                       onPressed: () async {},
                       type: ButtonType.filledVariant,
-                      text: 'Continue with Apple',
+                      text: context.l10n.continueWithApple,
                       icon: HugeIcon(
                         icon: HugeIcons.strokeRoundedApple,
                         color: context.color.onSecondary,
@@ -50,7 +50,7 @@ class _BottomSection extends ConsumerWidget {
                       expand: true,
                       onPressed: () async {},
                       type: ButtonType.text,
-                      text: 'Other options',
+                      text: context.l10n.otherOptions,
                     ),
                   ],
                 ),
@@ -59,7 +59,7 @@ class _BottomSection extends ConsumerWidget {
                 text: TextSpan(
                   children: [
                     TextSpan(
-                      text: 'Developed by ',
+                      text: context.l10n.developedBy,
                       style: context.textStyle.bodySmall.copyWith(
                         color: context.color.secondary.withOpacity(.7),
                       ),
