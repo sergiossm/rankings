@@ -1,8 +1,10 @@
 part of '../authentication_page.dart';
 
-class _BottomSection extends StatelessWidget {
+class _BottomSection extends ConsumerWidget {
+  const _BottomSection();
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Expanded(
       child: DecoratedBox(
         decoration: BoxDecoration(
@@ -18,7 +20,13 @@ class _BottomSection extends StatelessWidget {
                   children: [
                     Button(
                       expand: true,
-                      onPressed: () async {},
+                      onPressed: () async {
+                        unawaited(
+                          ref
+                              .read(authenticationControllerProvider.notifier)
+                              .signInWithGoogle(),
+                        );
+                      },
                       type: ButtonType.filledVariant,
                       text: 'Continue with Google',
                       icon: HugeIcon(

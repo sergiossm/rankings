@@ -1,20 +1,49 @@
 part of '../authentication_page.dart';
 
-class _TopSection extends StatelessWidget {
-  const _TopSection({
-    required this.fadeAnimation,
-    required this.slideAnimation,
-    required this.isAnimating,
-    required this.subtitleText,
-  });
-
-  final double fadeAnimation;
-  final Offset slideAnimation;
-  final ValueNotifier<bool> isAnimating;
-  final String subtitleText;
+class _TopSection extends HookWidget {
+  const _TopSection();
 
   @override
   Widget build(BuildContext context) {
+    final isAnimating = useState(true);
+    const subtitleText = 'Use AI to explore rankings';
+
+    final textController = useTextEditingController(text: subtitleText);
+
+    // Animation controllers for slide and fade
+    final animationController = useAnimationController(
+      duration: const Duration(milliseconds: 800),
+    );
+
+    final slideAnimation = useAnimation(
+      Tween<Offset>(
+        begin: const Offset(0, 0.03),
+        end: Offset.zero,
+      ).animate(
+        CurvedAnimation(
+          parent: animationController,
+          curve: Curves.easeOutCubic,
+        ),
+      ),
+    );
+
+    final fadeAnimation = useAnimation(
+      Tween<double>(begin: 0, end: 1).animate(
+        CurvedAnimation(
+          parent: animationController,
+          curve: Curves.easeIn,
+        ),
+      ),
+    );
+
+    useEffect(
+      () {
+        animationController.forward();
+        return textController.dispose;
+      },
+      [],
+    );
+
     return Expanded(
       flex: 2,
       child: DecoratedBox(

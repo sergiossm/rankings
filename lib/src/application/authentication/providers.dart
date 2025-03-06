@@ -3,7 +3,7 @@ import 'package:rankings/src/domain/authentication/facades/i_authentication_faca
 import 'package:rankings/src/infrastructure/authentication/data_sources/remote/firebase_auth_data_source.dart';
 import 'package:rankings/src/infrastructure/authentication/facades/authentication_facade.dart';
 
-final authFacadeProvider = Provider<IAuthenticationFacade>((ref) {
+final authenticationFacadeProvider = Provider<IAuthenticationFacade>((ref) {
   return AuthenticationFacade(
     remoteDataSource: FirebaseAuthDataSource(),
   );
