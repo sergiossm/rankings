@@ -22,18 +22,14 @@ final goRouterProvider = Provider<GoRouter>((ref) {
     //   ),
     // ],
     redirect: (context, state) {
-      debugPrint('redirect: ${state.fullPath}');
-
       final isAuthenticated = authRepository.getSignedInUser().isSome();
       if (!isAuthenticated) {
-        debugPrint('auth: false');
         return Routes.authentication.path;
       }
 
       // If the user is authenticated and the path is the authentication path, redirect to the home path
       if (isAuthenticated &&
           state.uri.path.startsWith(Routes.authentication.path)) {
-        debugPrint('splash: true');
         return Routes.home.path;
       }
 
