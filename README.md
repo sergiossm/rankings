@@ -10,6 +10,7 @@ A production-ready Flutter application demonstrating best practices in mobile ap
 - [Environment Setup and Configuration](#environment-setup-and-configuration)
 - [Key Technical Decisions](#key-technical-decisions)
 - [Feature Overview and Future Improvements](#feature-overview-and-future-improvements)
+- [Working App](#working-app)
 
 ---
 
@@ -232,4 +233,14 @@ Preload data for a smooth user experience.
 - [ ] **Firebase Analytics**: Integrate Firebase Analytics to track user engagement.
 - [ ] https://github.com/octo-org/octo-repo/issues/740
 - [ ] Add delight to the experience when all tasks are complete :tada:
+
+---
+
+
+## Working App
+
+https://github.com/user-attachments/assets/f681d492-c614-4edc-b872-9cc16224375c
+
+
+
 
