@@ -196,23 +196,23 @@ lib/
 ## Feature Overview and Future Improvements
 ### Authentication
 Handle user authentication using Firebase Authentication.
-- <input disabled checked type="checkbox"> Google Sign-In
-- <input disabled checked type="checkbox"> Sign-Out
+- [x] Google Sign-In #739
+- [x] Sign-Out
 
 ### Rankings
 Allow users to ask questions about rankings and view results.
-- <input disabled checked type="checkbox"> Ask ranking questions
-- <input disabled checked type="checkbox"> Display ranking results
-- <input disabled checked type="checkbox"> Display explanations for rankings
-- <input disabled type="checkbox"> Share ranking results
-- <input disabled type="checkbox"> Save favorite rankings
-- <input disabled type="checkbox"> Edit ranking questions
+- [x] Ask ranking questions
+- [x] Display ranking results
+- [x] Display explanations for rankings
+- [ ] Share ranking results
+- [ ] Save favorite rankings
+- [ ] Edit ranking questions
 
 ### User Profile
 Manage user profile information.
-- <input disabled checked type="checkbox"> Display User Profile
-- <input disabled type="checkbox"> Update User Preferences
-- <input disabled type="checkbox"> View History of Ranking Questions
+- [x] Display User Profile
+- [ ] Update User Preferences
+- [ ] View History of Ranking Questions
 
 ### Routing
 Handle navigation between screens using the GoRouter package.
@@ -224,12 +224,12 @@ Preload data for a smooth user experience.
 
 ### Potential Performance Optimizations
 
-- <input disabled type="checkbox"> **Caching**: Implement caching for ranking results to improve performance.
-- <input disabled type="checkbox"> **Pagination**: Load ranking questions and results in batches to reduce initial load times.
+- [ ] **Caching**: Implement caching for ranking results to improve performance.
+- [ ] **Pagination**: Load ranking questions and results in batches to reduce initial load times.
 
 ### Potential New Integrations or Features
-- <input disabled type="checkbox"> **Firebase Cloud Functions**: Use Firebase Cloud Functions for secure backend processing.
-- <input disabled type="checkbox"> **Firebase Analytics**: Integrate Firebase Analytics to track user engagement.
-- <input disabled type="checkbox"> **Social Sharing**: Allow users to share ranking results on social media.
-- <input disabled type="checkbox"> **Custom Ranking Criteria**: Allow users to specify criteria for rankings.
+- [ ] **Firebase Cloud Functions**: Use Firebase Cloud Functions for secure backend processing.
+- [ ] **Firebase Analytics**: Integrate Firebase Analytics to track user engagement.
+- [ ] https://github.com/octo-org/octo-repo/issues/740
+- [ ] Add delight to the experience when all tasks are complete :tada:
 
