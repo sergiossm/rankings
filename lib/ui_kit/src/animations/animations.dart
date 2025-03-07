@@ -1,3 +1,4 @@
+export 'blur_fade.dart';
 export 'border_beam.dart';
 export 'fade_blur_strategy.dart';
 export 'hyper_text.dart';

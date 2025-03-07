@@ -63,5 +63,9 @@
     "developedBy": "Developed by",
     "@developedBy": {
         "description": "Text shown in the developed by text"
+    },
+    "askAQuestion": "Ask a question",
+    "@askAQuestion": {
+        "description": "Text shown in the ask a question text field"
     }
 }

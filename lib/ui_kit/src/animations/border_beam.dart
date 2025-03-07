@@ -134,7 +134,7 @@ class BorderBeamPainter extends CustomPainter {
         gradientStart,
         gradientEnd,
         [
-          colorTo.withOpacity(0), // Transparent color for fading effect
+          colorTo.withValues(alpha: 0), // Transparent color for fading effect
           colorTo,
           colorFrom,
         ],
