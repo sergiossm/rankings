@@ -7,6 +7,7 @@ abstract class AppThemeColorScheme extends ColorScheme {
     required this.onPrimary,
     required this.secondary,
     required this.onSecondary,
+    required this.tertiary,
     required this.error,
     required this.onError,
     required this.surface,
@@ -34,6 +35,8 @@ abstract class AppThemeColorScheme extends ColorScheme {
   @override
   final Color secondary;
   @override
+  final Color tertiary;
+  @override
   final Color onSecondary;
   @override
   final Color error;
@@ -55,6 +58,7 @@ class LightColorScheme extends AppThemeColorScheme {
           onPrimary: const Color(0xFFFFFFFF),
           secondary: const Color(0xFF212529),
           onSecondary: const Color(0xFFFFFFFF),
+          tertiary: const Color(0xFF6200EE),
           error: const Color(0xFFFF0033),
           onError: const Color(0xFFFFFFFF),
           surface: const Color(0xFFFFFFFF),
@@ -71,6 +75,7 @@ class DarkColorScheme extends AppThemeColorScheme {
           onPrimary: const Color(0xFFFFFFFF),
           secondary: const Color(0xFF03DAC6),
           onSecondary: const Color(0xFF000000),
+          tertiary: const Color(0xFF6200EE),
           error: const Color(0xFFFF0033),
           onError: const Color(0xFFFFFFFF),
           surface: const Color(0xFFFFFFFF),

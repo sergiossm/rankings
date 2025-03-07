@@ -47,84 +47,84 @@ class AppTextTheme extends TextTheme {
         ),
       ),
       headlineLarge: AppThemeTextStyle(colorScheme).merge(
-        GoogleFonts.roboto(
+        GoogleFonts.archivo(
           fontSize: 34,
           fontWeight: FontWeight.w700,
           color: colorScheme.onSurface,
         ),
       ),
       headlineMedium: AppThemeTextStyle(colorScheme).merge(
-        GoogleFonts.roboto(
+        GoogleFonts.archivo(
           fontSize: 24,
           fontWeight: FontWeight.w700,
           color: colorScheme.onSurface,
         ),
       ),
       headlineSmall: AppThemeTextStyle(colorScheme).merge(
-        GoogleFonts.roboto(
+        GoogleFonts.archivo(
           fontSize: 20,
           fontWeight: FontWeight.w700,
           color: colorScheme.onSurface,
         ),
       ),
       titleLarge: AppThemeTextStyle(colorScheme).merge(
-        GoogleFonts.roboto(
+        GoogleFonts.archivo(
           fontSize: 18,
           fontWeight: FontWeight.w700,
           color: colorScheme.onSurface,
         ),
       ),
       titleMedium: AppThemeTextStyle(colorScheme).merge(
-        GoogleFonts.roboto(
+        GoogleFonts.archivo(
           fontSize: 16,
           fontWeight: FontWeight.w700,
           color: colorScheme.onSurface,
         ),
       ),
       titleSmall: AppThemeTextStyle(colorScheme).merge(
-        GoogleFonts.roboto(
+        GoogleFonts.archivo(
           fontSize: 14,
           fontWeight: FontWeight.w700,
           color: colorScheme.onSurface,
         ),
       ),
       bodyLarge: AppThemeTextStyle(colorScheme).merge(
-        GoogleFonts.roboto(
+        GoogleFonts.archivo(
           fontSize: 16,
           fontWeight: FontWeight.w400,
           color: colorScheme.onSurface,
         ),
       ),
       bodyMedium: AppThemeTextStyle(colorScheme).merge(
-        GoogleFonts.roboto(
+        GoogleFonts.archivo(
           fontSize: 14,
           fontWeight: FontWeight.w500,
           color: colorScheme.onSurface,
         ),
       ),
       bodySmall: AppThemeTextStyle(colorScheme).merge(
-        GoogleFonts.roboto(
+        GoogleFonts.archivo(
           fontSize: 12,
           fontWeight: FontWeight.w400,
           color: colorScheme.onSurface,
         ),
       ),
       labelLarge: AppThemeTextStyle(colorScheme).merge(
-        GoogleFonts.roboto(
+        GoogleFonts.archivo(
           fontSize: 16,
           fontWeight: FontWeight.w500,
           color: colorScheme.onSurface,
         ),
       ),
       labelMedium: AppThemeTextStyle(colorScheme).merge(
-        GoogleFonts.roboto(
+        GoogleFonts.archivo(
           fontSize: 14,
           fontWeight: FontWeight.w500,
           color: colorScheme.onSurface,
         ),
       ),
       labelSmall: AppThemeTextStyle(colorScheme).merge(
-        GoogleFonts.roboto(
+        GoogleFonts.archivo(
           fontSize: 12,
           fontWeight: FontWeight.w400,
           color: colorScheme.onSurface,

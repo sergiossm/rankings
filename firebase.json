@@ -1,1 +1,112 @@
-{"flutter":{"platforms":{"android":{"buildConfigurations":{"src/development":{"projectId":"rankings-faee4","appId":"1:585478224702:android:33da5b0e26d7f4f40c8a6f","fileOutput":"android/app/src/development/google-services.json"},"src/staging":{"projectId":"rankings-faee4","appId":"1:585478224702:android:bb44f7b52cf1b2360c8a6f","fileOutput":"android/app/src/staging/google-services.json"},"src/production":{"projectId":"rankings-faee4","appId":"1:585478224702:android:24d042ece01128030c8a6f","fileOutput":"android/app/src/production/google-services.json"}}},"ios":{"buildConfigurations":{"Debug":{"projectId":"rankings-faee4","appId":"1:585478224702:ios:fccc27d6f748d3a90c8a6f","uploadDebugSymbols":false,"fileOutput":"ios/flavors/production/GoogleService-Info.plist"}}},"dart":{"lib/firebase_options_development.dart":{"projectId":"rankings-faee4","configurations":{"android":"1:585478224702:android:33da5b0e26d7f4f40c8a6f","ios":"1:585478224702:ios:1d2d9a415f1127170c8a6f"}},"lib/firebase_options_staging.dart":{"projectId":"rankings-faee4","configurations":{"android":"1:585478224702:android:bb44f7b52cf1b2360c8a6f","ios":"1:585478224702:ios:a964cfc630f7e90a0c8a6f"}},"lib/firebase_options_production.dart":{"projectId":"rankings-faee4","configurations":{"android":"1:585478224702:android:24d042ece01128030c8a6f","ios":"1:585478224702:ios:fccc27d6f748d3a90c8a6f"}}}}}}
+{
+    "flutter": {
+        "platforms": {
+            "android": {
+                "buildConfigurations": {
+                    "src/development": {
+                        "projectId": "rankings-faee4",
+                        "appId": "1:585478224702:android:33da5b0e26d7f4f40c8a6f",
+                        "fileOutput": "android/app/src/development/google-services.json"
+                    },
+                    "src/staging": {
+                        "projectId": "rankings-faee4",
+                        "appId": "1:585478224702:android:bb44f7b52cf1b2360c8a6f",
+                        "fileOutput": "android/app/src/staging/google-services.json"
+                    },
+                    "src/production": {
+                        "projectId": "rankings-faee4",
+                        "appId": "1:585478224702:android:24d042ece01128030c8a6f",
+                        "fileOutput": "android/app/src/production/google-services.json"
+                    }
+                }
+            },
+            "ios": {
+                "buildConfigurations": {
+                    "Debug": {
+                        "projectId": "rankings-faee4",
+                        "appId": "1:585478224702:ios:fccc27d6f748d3a90c8a6f",
+                        "uploadDebugSymbols": false,
+                        "fileOutput": "ios/flavors/production/GoogleService-Info.plist"
+                    },
+                    "Debug-development": {
+                        "projectId": "rankings-faee4",
+                        "appId": "1:585478224702:ios:1d2d9a415f1127170c8a6f",
+                        "uploadDebugSymbols": false,
+                        "fileOutput": "ios/flavors/development/GoogleService-Info.plist"
+                    },
+                    "Debug-staging": {
+                        "projectId": "rankings-faee4",
+                        "appId": "1:585478224702:ios:a964cfc630f7e90a0c8a6f",
+                        "uploadDebugSymbols": false,
+                        "fileOutput": "ios/flavors/staging/GoogleService-Info.plist"
+                    },
+                    "Debug-production": {
+                        "projectId": "rankings-faee4",
+                        "appId": "1:585478224702:ios:fccc27d6f748d3a90c8a6f",
+                        "uploadDebugSymbols": false,
+                        "fileOutput": "ios/flavors/production/GoogleService-Info.plist"
+                    },
+                    "Release-development": {
+                        "projectId": "rankings-faee4",
+                        "appId": "1:585478224702:ios:1d2d9a415f1127170c8a6f",
+                        "uploadDebugSymbols": false,
+                        "fileOutput": "ios/flavors/development/GoogleService-Info.plist"
+                    },
+                    "Release-staging": {
+                        "projectId": "rankings-faee4",
+                        "appId": "1:585478224702:ios:a964cfc630f7e90a0c8a6f",
+                        "uploadDebugSymbols": false,
+                        "fileOutput": "ios/flavors/staging/GoogleService-Info.plist"
+                    },
+                    "Release-production": {
+                        "projectId": "rankings-faee4",
+                        "appId": "1:585478224702:ios:fccc27d6f748d3a90c8a6f",
+                        "uploadDebugSymbols": false,
+                        "fileOutput": "ios/flavors/production/GoogleService-Info.plist"
+                    },
+                    "Profile-development": {
+                        "projectId": "rankings-faee4",
+                        "appId": "1:585478224702:ios:1d2d9a415f1127170c8a6f",
+                        "uploadDebugSymbols": false,
+                        "fileOutput": "ios/flavors/development/GoogleService-Info.plist"
+                    },
+                    "Profile-staging": {
+                        "projectId": "rankings-faee4",
+                        "appId": "1:585478224702:ios:a964cfc630f7e90a0c8a6f",
+                        "uploadDebugSymbols": false,
+                        "fileOutput": "ios/flavors/staging/GoogleService-Info.plist"
+                    },
+                    "Profile-production": {
+                        "projectId": "rankings-faee4",
+                        "appId": "1:585478224702:ios:fccc27d6f748d3a90c8a6f",
+                        "uploadDebugSymbols": false,
+                        "fileOutput": "ios/flavors/production/GoogleService-Info.plist"
+                    }
+                }
+            },
+            "dart": {
+                "lib/firebase_options_development.dart": {
+                    "projectId": "rankings-faee4",
+                    "configurations": {
+                        "android": "1:585478224702:android:33da5b0e26d7f4f40c8a6f",
+                        "ios": "1:585478224702:ios:1d2d9a415f1127170c8a6f"
+                    }
+                },
+                "lib/firebase_options_staging.dart": {
+                    "projectId": "rankings-faee4",
+                    "configurations": {
+                        "android": "1:585478224702:android:bb44f7b52cf1b2360c8a6f",
+                        "ios": "1:585478224702:ios:a964cfc630f7e90a0c8a6f"
+                    }
+                },
+                "lib/firebase_options_production.dart": {
+                    "projectId": "rankings-faee4",
+                    "configurations": {
+                        "android": "1:585478224702:android:24d042ece01128030c8a6f",
+                        "ios": "1:585478224702:ios:fccc27d6f748d3a90c8a6f"
+                    }
+                }
+            }
+        }
+    }
+}

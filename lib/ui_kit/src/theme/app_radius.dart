@@ -28,4 +28,16 @@ class _BorderRadius {
 
   /// 16px
   BorderRadius get s5 => BorderRadius.circular(AppSizes.s5);
+
+  /// 20px
+  BorderRadius get s6 => BorderRadius.circular(AppSizes.s6);
+
+  /// 24px
+  BorderRadius get s7 => BorderRadius.circular(AppSizes.s7);
+
+  /// 28px
+  BorderRadius get s8 => BorderRadius.circular(AppSizes.s8);
+
+  /// 32px
+  BorderRadius get s9 => BorderRadius.circular(AppSizes.s9);
 }

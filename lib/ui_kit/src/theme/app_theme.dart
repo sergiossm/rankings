@@ -58,22 +58,24 @@ class AppTheme {
       primaryTextTheme: textStyle,
       appBarTheme: baseThemeData.appBarTheme.copyWith(
         color: colorScheme.surface,
-        centerTitle: false,
+        centerTitle: true,
         elevation: 0,
         scrolledUnderElevation: 0,
-        titleTextStyle: textStyle.displaySmall,
+        titleTextStyle: textStyle.headlineSmall,
         iconTheme: baseThemeData.iconTheme.copyWith(
           color: colorScheme.onSurface,
         ),
       ),
       dividerTheme: DividerThemeData(
-        color: colorScheme.onSurface.withOpacity(.1),
+        color: colorScheme.onSurface.withValues(alpha: .1),
         thickness: 1,
       ),
       scaffoldBackgroundColor: colorScheme.surface,
       canvasColor: colorScheme.surface,
       cardColor: colorScheme.surface,
-      dialogBackgroundColor: colorScheme.surface,
+      dialogTheme: DialogThemeData(
+        backgroundColor: colorScheme.surface,
+      ),
       buttonTheme: baseThemeData.buttonTheme.copyWith(
         buttonColor: colorScheme.primary,
         textTheme: ButtonTextTheme.primary,

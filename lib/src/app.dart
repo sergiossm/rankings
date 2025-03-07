@@ -16,17 +16,17 @@ class App extends HookConsumerWidget {
     return MaterialApp.router(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
+      debugShowCheckedModeBanner: false,
       theme: appTheme.theme,
       routerConfig: router,
-      builder: (context, child) => Builder(
-        builder: (context) => ThemeProvider(
-          appTheme: appTheme,
-          child: Scaffold(
-            resizeToAvoidBottomInset: false,
-            body: child,
+      builder:
+          (context, child) => Builder(
+            builder:
+                (context) => ThemeProvider(
+                  appTheme: appTheme,
+                  child: Scaffold(resizeToAvoidBottomInset: false, body: child),
+                ),
           ),
-        ),
-      ),
     );
   }
 }
