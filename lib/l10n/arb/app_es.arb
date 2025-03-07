@@ -63,5 +63,9 @@
     "developedBy": "Desarrollado por",
     "@developedBy": {
         "description": "Texto mostrado en el texto de desarrollado por"
+    },
+    "askAQuestion": "Pídeme que clasifique cualquier cosa",
+    "@askAQuestion": {
+        "description": "Sugerencia de prompt para clasificar cualquier cosa"
     }
 }

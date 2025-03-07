@@ -6,18 +6,18 @@ import 'package:rankings/src/domain/authentication/facades/i_authentication_faca
 /// Provider for the authentication controller
 final authenticationControllerProvider =
     StateNotifierProvider<AuthenticationController, AuthenticationState>(
-  (ref) => AuthenticationController(
-    authenticationFacade: ref.read(authenticationFacadeProvider),
-  ),
-);
+      (ref) => AuthenticationController(
+        authenticationFacade: ref.watch(authenticationFacadeProvider),
+      ),
+    );
 
 /// Controller that manages authentication state
 class AuthenticationController extends StateNotifier<AuthenticationState> {
   /// Creates a new instance of [AuthenticationController]
   AuthenticationController({
     required IAuthenticationFacade authenticationFacade,
-  })  : _authenticationFacade = authenticationFacade,
-        super(const AuthenticationState.initial());
+  }) : _authenticationFacade = authenticationFacade,
+       super(const AuthenticationState.initial());
 
   /// The authentication facade
   final IAuthenticationFacade _authenticationFacade;

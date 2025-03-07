@@ -67,13 +67,15 @@ class AppTheme {
         ),
       ),
       dividerTheme: DividerThemeData(
-        color: colorScheme.onSurface.withOpacity(.1),
+        color: colorScheme.onSurface.withValues(alpha: .1),
         thickness: 1,
       ),
       scaffoldBackgroundColor: colorScheme.surface,
       canvasColor: colorScheme.surface,
       cardColor: colorScheme.surface,
-      dialogBackgroundColor: colorScheme.surface,
+      dialogTheme: DialogThemeData(
+        backgroundColor: colorScheme.surface,
+      ),
       buttonTheme: baseThemeData.buttonTheme.copyWith(
         buttonColor: colorScheme.primary,
         textTheme: ButtonTextTheme.primary,

@@ -7,9 +7,7 @@ class _BottomSection extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Expanded(
       child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: context.color.surfaceVariant,
-        ),
+        decoration: BoxDecoration(color: context.color.surfaceVariant),
         child: Padding(
           padding: const EdgeInsets.all(AppSizes.s8),
           child: Column(
@@ -61,12 +59,14 @@ class _BottomSection extends ConsumerWidget {
                     TextSpan(
                       text: context.l10n.developedBy,
                       style: context.textStyle.bodySmall.copyWith(
-                        color: context.color.secondary.withOpacity(.7),
+                        color: context.color.secondary.withValues(alpha: .7),
                       ),
                     ),
                     TextSpan(
-                      text: 'Sergio Sánchez',
-                      style: context.textStyle.bodySmall,
+                      text: ' Sergio Sánchez',
+                      style: context.textStyle.bodySmall.copyWith(
+                        color: context.color.secondary,
+                      ),
                     ),
                   ],
                 ),

@@ -11,11 +11,7 @@ enum ButtonType {
   iconTonal,
 }
 
-enum IconPosition {
-  left,
-  right,
-  top,
-}
+enum IconPosition { left, right, top }
 
 enum ButtonSize {
   large(48),
@@ -64,20 +60,21 @@ class _ButtonState extends State<Button> {
     final showLoader = widget.isLoading || _isLoading;
 
     final isDisabled = widget.onPressed == null;
-    final onPressedFunc = isDisabled
-        ? null
-        : () async {
-            if (!_isLoading) {
-              try {
-                setState(() => _isLoading = true);
-                await widget.onPressed?.call();
-              } finally {
-                if (mounted) {
-                  setState(() => _isLoading = false);
+    final onPressedFunc =
+        isDisabled
+            ? null
+            : () async {
+              if (!_isLoading) {
+                try {
+                  setState(() => _isLoading = true);
+                  await widget.onPressed?.call();
+                } finally {
+                  if (mounted) {
+                    setState(() => _isLoading = false);
+                  }
                 }
               }
-            }
-          };
+            };
 
     final text = Text(
       widget.text ?? '',
@@ -94,11 +91,13 @@ class _ButtonState extends State<Button> {
               : context.color.primary,
           BlendMode.srcIn,
         ),
-        child: const LoadingIndicator(
-          size: AppSizes.s5,
-          strokeWidth: 1.5,
-        ),
+        child: const LoadingIndicator(size: AppSizes.s5, strokeWidth: 1.5),
       );
+    } else if ((widget.type == ButtonType.iconFilled ||
+            widget.type == ButtonType.iconTonal) &&
+        widget.icon != null) {
+      // Special case for icon buttons - use only the icon without text
+      child = widget.icon!;
     } else if (widget.icon != null &&
         widget.iconPosition == IconPosition.right) {
       child = Row(
@@ -133,6 +132,24 @@ class _ButtonState extends State<Button> {
           text,
           AppSpacing.vertical.s5,
         ],
+      );
+    }
+
+    // For icon-filled buttons, we need a different approach to prevent expansion
+    if ((widget.type == ButtonType.iconFilled ||
+            widget.type == ButtonType.iconTonal) &&
+        widget.icon != null &&
+        !widget.expand) {
+      // Use SizedBox.square for a more direct approach
+      return SizedBox.square(
+        dimension: widget.size.height,
+        child: _CustomFilledButton(
+          type: widget.type,
+          onPressed: onPressedFunc,
+          removePadding: true, // Always remove padding for icon buttons
+          borderRadius: widget.borderRadius,
+          child: Center(child: child), // Center the icon
+        ),
       );
     }
 
@@ -173,224 +190,209 @@ class _CustomFilledButton extends StatelessWidget {
 
     return switch (type) {
       ButtonType.filled => FilledButton(
-          onPressed: onPressed,
-          style: ButtonStyle(
-            shape: borderRadius == null
-                ? null
-                : WidgetStateProperty.resolveWith<OutlinedBorder?>(
-                    (states) {
-                      return RoundedRectangleBorder(
-                        borderRadius: borderRadius!,
-                      );
-                    },
-                  ),
-            overlayColor: WidgetStateProperty.resolveWith<Color?>(
-              (states) {
-                return context.color.primary.withOpacity(.05);
-              },
-            ),
-            padding: removePadding
-                ? const WidgetStatePropertyAll(horizontalPadding)
-                : null,
-            textStyle: WidgetStatePropertyAll(textStyle),
-            backgroundColor: WidgetStateProperty.resolveWith<Color?>(
-              (states) {
-                if (states.contains(WidgetState.disabled)) {
-                  return context.color.secondary.withOpacity(.5);
-                }
-                return context.color.secondary;
-              },
-            ),
-            foregroundColor: WidgetStateProperty.resolveWith<Color?>(
-              (states) {
-                if (states.contains(WidgetState.disabled)) {
-                  return context.color.primary.withOpacity(.5);
-                }
-                return context.color.primary;
-              },
-            ),
-          ),
-          child: child,
+        onPressed: onPressed,
+        style: ButtonStyle(
+          shape:
+              borderRadius == null
+                  ? null
+                  : WidgetStateProperty.resolveWith<OutlinedBorder?>((states) {
+                    return RoundedRectangleBorder(borderRadius: borderRadius!);
+                  }),
+          overlayColor: WidgetStateProperty.resolveWith<Color?>((states) {
+            return context.color.primary.withValues(alpha: .05);
+          }),
+          padding:
+              removePadding
+                  ? const WidgetStatePropertyAll(horizontalPadding)
+                  : null,
+          textStyle: WidgetStatePropertyAll(textStyle),
+          backgroundColor: WidgetStateProperty.resolveWith<Color?>((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return context.color.secondary.withValues(alpha: .5);
+            }
+            return context.color.secondary;
+          }),
+          foregroundColor: WidgetStateProperty.resolveWith<Color?>((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return context.color.primary.withValues(alpha: .5);
+            }
+            return context.color.primary;
+          }),
         ),
+        child: child,
+      ),
       ButtonType.filledVariant => FilledButton(
-          onPressed: onPressed,
-          style: ButtonStyle(
-            shape: borderRadius == null
-                ? null
-                : WidgetStateProperty.resolveWith<OutlinedBorder?>(
-                    (states) {
-                      return RoundedRectangleBorder(
-                        borderRadius: borderRadius!,
-                      );
-                    },
-                  ),
-            overlayColor: WidgetStateProperty.resolveWith<Color?>(
-              (states) {
-                return context.color.onSecondary.withOpacity(.05);
-              },
-            ),
-            padding: removePadding
-                ? const WidgetStatePropertyAll(horizontalPadding)
-                : null,
-            textStyle: WidgetStatePropertyAll(textStyle),
-            backgroundColor: WidgetStateProperty.resolveWith<Color?>(
-              (states) {
-                return context.color.secondary;
-              },
-            ),
-            foregroundColor: WidgetStateProperty.resolveWith<Color?>(
-              (states) {
-                return context.color.onSecondary;
-              },
-            ),
-          ),
-          child: child,
+        onPressed: onPressed,
+        style: ButtonStyle(
+          shape:
+              borderRadius == null
+                  ? null
+                  : WidgetStateProperty.resolveWith<OutlinedBorder?>((states) {
+                    return RoundedRectangleBorder(borderRadius: borderRadius!);
+                  }),
+          overlayColor: WidgetStateProperty.resolveWith<Color?>((states) {
+            return context.color.onSecondary.withValues(alpha: .05);
+          }),
+          padding:
+              removePadding
+                  ? const WidgetStatePropertyAll(horizontalPadding)
+                  : null,
+          textStyle: WidgetStatePropertyAll(textStyle),
+          backgroundColor: WidgetStateProperty.resolveWith<Color?>((states) {
+            return context.color.secondary;
+          }),
+          foregroundColor: WidgetStateProperty.resolveWith<Color?>((states) {
+            return context.color.onSecondary;
+          }),
         ),
+        child: child,
+      ),
       ButtonType.tonal => FilledButton(
-          onPressed: onPressed,
-          style: ButtonStyle(
-            shape: borderRadius == null
-                ? null
-                : WidgetStateProperty.resolveWith<OutlinedBorder?>(
-                    (states) {
-                      return RoundedRectangleBorder(
-                        borderRadius: borderRadius!,
-                      );
-                    },
-                  ),
-            overlayColor: WidgetStateProperty.resolveWith<Color?>(
-              (states) {
-                return context.color.onSecondary.withOpacity(.05);
-              },
-            ),
-            padding: removePadding
-                ? const WidgetStatePropertyAll(horizontalPadding)
-                : null,
-            textStyle: WidgetStatePropertyAll(textStyle),
-            backgroundColor: WidgetStateProperty.resolveWith<Color?>(
-              (states) {
-                if (states.contains(WidgetState.disabled)) {
-                  return context.color.onSecondary.withOpacity(.1);
-                }
-                return context.color.onSecondary.withOpacity(.05);
-              },
-            ),
-            foregroundColor: WidgetStateProperty.resolveWith<Color?>(
-              (states) {
-                if (states.contains(WidgetState.disabled)) {
-                  return context.color.onSecondary.withOpacity(.2);
-                }
-                return context.color.onSecondary.withOpacity(.87);
-              },
-            ),
-          ),
-          child: child,
+        onPressed: onPressed,
+        style: ButtonStyle(
+          shape:
+              borderRadius == null
+                  ? null
+                  : WidgetStateProperty.resolveWith<OutlinedBorder?>((states) {
+                    return RoundedRectangleBorder(borderRadius: borderRadius!);
+                  }),
+          overlayColor: WidgetStateProperty.resolveWith<Color?>((states) {
+            return context.color.onSecondary.withValues(alpha: .05);
+          }),
+          padding:
+              removePadding
+                  ? const WidgetStatePropertyAll(horizontalPadding)
+                  : null,
+          textStyle: WidgetStatePropertyAll(textStyle),
+          backgroundColor: WidgetStateProperty.resolveWith<Color?>((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return context.color.onSecondary.withValues(alpha: .1);
+            }
+            return context.color.onSecondary.withValues(alpha: .05);
+          }),
+          foregroundColor: WidgetStateProperty.resolveWith<Color?>((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return context.color.onSecondary.withValues(alpha: .2);
+            }
+            return context.color.onSecondary.withValues(alpha: .87);
+          }),
         ),
+        child: child,
+      ),
       ButtonType.text => TextButton(
-          onPressed: onPressed,
-          style: ButtonStyle(
-            shape: borderRadius == null
-                ? null
-                : WidgetStateProperty.resolveWith<OutlinedBorder?>(
-                    (states) {
-                      return RoundedRectangleBorder(
-                        borderRadius: borderRadius!,
-                      );
-                    },
-                  ),
-            overlayColor: WidgetStateProperty.resolveWith<Color?>(
-              (states) {
-                return context.color.secondary.withOpacity(.05);
-              },
-            ),
-            padding: removePadding
-                ? const WidgetStatePropertyAll(horizontalPadding)
-                : null,
-            textStyle: WidgetStatePropertyAll(textStyle),
-            foregroundColor: WidgetStateProperty.resolveWith<Color?>(
-              (states) {
-                if (states.contains(WidgetState.disabled)) {
-                  return context.color.secondary.withOpacity(.2);
-                }
-                return context.color.secondary.withOpacity(.87);
-              },
-            ),
-          ),
-          child: child,
+        onPressed: onPressed,
+        style: ButtonStyle(
+          shape:
+              borderRadius == null
+                  ? null
+                  : WidgetStateProperty.resolveWith<OutlinedBorder?>((states) {
+                    return RoundedRectangleBorder(borderRadius: borderRadius!);
+                  }),
+          overlayColor: WidgetStateProperty.resolveWith<Color?>((states) {
+            return context.color.secondary.withValues(alpha: .05);
+          }),
+          padding:
+              removePadding
+                  ? const WidgetStatePropertyAll(horizontalPadding)
+                  : null,
+          textStyle: WidgetStatePropertyAll(textStyle),
+          foregroundColor: WidgetStateProperty.resolveWith<Color?>((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return context.color.secondary.withValues(alpha: .2);
+            }
+            return context.color.secondary.withValues(alpha: .87);
+          }),
         ),
+        child: child,
+      ),
       ButtonType.textDestructive => TextButton(
-          onPressed: onPressed,
-          style: ButtonStyle(
-            shape: borderRadius == null
-                ? null
-                : WidgetStateProperty.resolveWith<OutlinedBorder?>(
-                    (states) {
-                      return RoundedRectangleBorder(
-                        borderRadius: borderRadius!,
-                      );
-                    },
-                  ),
-            overlayColor: WidgetStateProperty.resolveWith<Color?>(
-              (states) {
-                return context.color.error.withOpacity(.05);
-              },
-            ),
-            padding: removePadding
-                ? const WidgetStatePropertyAll(horizontalPadding)
-                : null,
-            textStyle: WidgetStatePropertyAll(textStyle),
-            foregroundColor: WidgetStateProperty.resolveWith<Color?>(
-              (states) {
-                if (states.contains(WidgetState.disabled)) {
-                  return context.color.error.withOpacity(.2);
-                }
-                return context.color.error.withOpacity(.87);
-              },
-            ),
-          ),
-          child: child,
+        onPressed: onPressed,
+        style: ButtonStyle(
+          shape:
+              borderRadius == null
+                  ? null
+                  : WidgetStateProperty.resolveWith<OutlinedBorder?>((states) {
+                    return RoundedRectangleBorder(borderRadius: borderRadius!);
+                  }),
+          overlayColor: WidgetStateProperty.resolveWith<Color?>((states) {
+            return context.color.error.withValues(alpha: .05);
+          }),
+          padding:
+              removePadding
+                  ? const WidgetStatePropertyAll(horizontalPadding)
+                  : null,
+          textStyle: WidgetStatePropertyAll(textStyle),
+          foregroundColor: WidgetStateProperty.resolveWith<Color?>((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return context.color.error.withValues(alpha: .2);
+            }
+            return context.color.error.withValues(alpha: .87);
+          }),
         ),
-      ButtonType.iconFilled => throw UnimplementedError(),
+        child: child,
+      ),
+      ButtonType.iconFilled => FilledButton(
+        onPressed: onPressed,
+        style: ButtonStyle(
+          minimumSize: const WidgetStatePropertyAll(Size.zero),
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          shape:
+              borderRadius == null
+                  ? null
+                  : WidgetStateProperty.resolveWith<OutlinedBorder?>((states) {
+                    return RoundedRectangleBorder(borderRadius: borderRadius!);
+                  }),
+          overlayColor: WidgetStateProperty.resolveWith<Color?>((states) {
+            return context.color.secondary.withValues(alpha: .05);
+          }),
+          padding: const WidgetStatePropertyAll(EdgeInsets.zero),
+          textStyle: WidgetStatePropertyAll(textStyle),
+          backgroundColor: WidgetStateProperty.resolveWith<Color?>((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return context.color.primary.withValues(alpha: .5);
+            }
+            return context.color.primary;
+          }),
+          foregroundColor: WidgetStateProperty.resolveWith<Color?>((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return context.color.primary.withValues(alpha: .5);
+            }
+            return context.color.primary;
+          }),
+        ),
+        child: child,
+      ),
       ButtonType.iconTonal => FilledButton(
-          onPressed: onPressed,
-          style: ButtonStyle(
-            shape: borderRadius == null
-                ? null
-                : WidgetStateProperty.resolveWith<OutlinedBorder?>(
-                    (states) {
-                      return RoundedRectangleBorder(
-                        borderRadius: borderRadius!,
-                      );
-                    },
-                  ),
-            overlayColor: WidgetStateProperty.resolveWith<Color?>(
-              (states) {
-                return context.color.onSecondary.withOpacity(.05);
-              },
-            ),
-            padding: removePadding
-                ? const WidgetStatePropertyAll(horizontalPadding)
-                : null,
-            textStyle: WidgetStatePropertyAll(textStyle),
-            backgroundColor: WidgetStateProperty.resolveWith<Color?>(
-              (states) {
-                if (states.contains(WidgetState.disabled)) {
-                  return context.color.onSecondary.withOpacity(.1);
-                }
-                return context.color.onSecondary.withOpacity(.05);
-              },
-            ),
-            foregroundColor: WidgetStateProperty.resolveWith<Color?>(
-              (states) {
-                if (states.contains(WidgetState.disabled)) {
-                  return context.color.onSecondary.withOpacity(.2);
-                }
-                return context.color.onSecondary.withOpacity(.87);
-              },
-            ),
-          ),
-          child: child,
+        onPressed: onPressed,
+        style: ButtonStyle(
+          minimumSize: const WidgetStatePropertyAll(Size.zero),
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          shape:
+              borderRadius == null
+                  ? null
+                  : WidgetStateProperty.resolveWith<OutlinedBorder?>((states) {
+                    return RoundedRectangleBorder(borderRadius: borderRadius!);
+                  }),
+          overlayColor: WidgetStateProperty.resolveWith<Color?>((states) {
+            return context.color.onSecondary.withValues(alpha: .05);
+          }),
+          padding: const WidgetStatePropertyAll(EdgeInsets.zero),
+          textStyle: WidgetStatePropertyAll(textStyle),
+          backgroundColor: WidgetStateProperty.resolveWith<Color?>((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return context.color.onSecondary.withValues(alpha: .1);
+            }
+            return context.color.onSecondary.withValues(alpha: .05);
+          }),
+          foregroundColor: WidgetStateProperty.resolveWith<Color?>((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return context.color.onSecondary.withValues(alpha: .2);
+            }
+            return context.color.onSecondary.withValues(alpha: .87);
+          }),
         ),
+        child: child,
+      ),
     };
   }
 }
